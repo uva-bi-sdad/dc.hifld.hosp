@@ -115,7 +115,7 @@ data_combined <- data_combined[!is.na(data_combined$Y),]
 ## travel time
 ```{r}
 library(osrm)
-options(osrm.server = "http://104.248.112.16:5000/", osrm.profile = "car")
+options(osrm.server = Sys.getenv("OSRM_SERVER"), osrm.profile = "car")
 if(!file.exists("traveltimes_exercise.csv")){
   traveltimes <- osrmTable(
     src = data_combined[, c("GEOID", "X", "Y")],  #population-demand

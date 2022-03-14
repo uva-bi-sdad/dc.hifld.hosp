@@ -5,7 +5,7 @@ date: "11/18/2021"
 output: html_document
 dataset:
   citation:
-      title: "Social Data Commons: Hospitals Access Scores"
+      title: "Social Data Commons: Health, Behavior, Diet: Hospitals Access Scores"
       subtitle: ""
       dsDescriptionValue: "Access Scores for hospitals located in the National Capital Region NCR given by the Floating Catchment Areas "
       subject: "Social Sciences (Ex: Education, Politics, Sociology, Economics, Psychology)"

@@ -7,10 +7,9 @@ Authors@R: c(
     person("Cesar", "Montalvo", email = "cpm9w@virginia.edu", role = c("aut", "cre"))
   )
 Description: Allows user to easily get Hospital Access Scores data from the SDAD Data Commons.  Data can be provided directly or in a file.
-License: CC0 1.0
+License: CC0
 Encoding: UTF-8
-LazyData: true
 Depends:
     R (>= 3.5.0)
 Imports: dataverse, readr, jsonlite
-RoxygenNote: 7.1.1
+RoxygenNote: 7.1.2

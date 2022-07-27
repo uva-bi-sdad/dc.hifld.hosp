@@ -86,29 +86,35 @@ process_year <- function(data, dir = "data/original", districts = county_distric
     }
     
     # aggregate provider data
-    vars_const <- c("hospital_name", "hospital_subtype", "hhs_ids", "is_metro_micro")
-    vars_avg <- c(
-      "total_beds_7_day_avg", "total_icu_beds_7_day_avg", "inpatient_beds_7_day_avg",
-      "inpatient_beds_used_7_day_avg", "all_adult_hospital_beds_7_day_avg",
-      "all_adult_hospital_inpatient_beds_7_day_avg", "all_adult_hospital_inpatient_bed_occupied_7_day_avg",
-      "icu_beds_used_7_day_avg", "staffed_adult_icu_bed_occupancy_7_day_avg",
-      "all_pediatric_inpatient_bed_occupied_7_day_avg", "all_pediatric_inpatient_beds_7_day_avg",
-      "total_staffed_pediatric_icu_beds_7_day_avg"
-    )
-    providers <- do.call(rbind, lapply(split(data, data$hospital_pk), function(d) {
-      d[d == -999999] <- NA
-      d1 <- d[1,, drop = TRUE]
-      coords <- as.numeric(strsplit(d1$geocoded_hospital_address, "[\\s\\(\\)]+", perl = TRUE)[[1]][-1])
-      if (length(coords)) {
-        data.frame(
-          GEOID = d1$hospital_pk,
-          X = coords[[1]],
-          Y = coords[[2]],
-          c(d1[vars_const], colMeans(d[, vars_avg], na.rm = TRUE))
-        )
-      }
-    }))
-    providers[is.na(providers)] <- NA
+    hospitals_file <- "data/working/hospitals.csv.xz"
+    if (file.exists(hospitals_file)) {
+      providers <- read.csv(gzfile(hospitals_file))
+    } else {
+      vars_const <- c("hospital_name", "hospital_subtype", "hhs_ids", "is_metro_micro")
+      vars_avg <- c(
+        "total_beds_7_day_avg", "total_icu_beds_7_day_avg", "inpatient_beds_7_day_avg",
+        "inpatient_beds_used_7_day_avg", "all_adult_hospital_beds_7_day_avg",
+        "all_adult_hospital_inpatient_beds_7_day_avg", "all_adult_hospital_inpatient_bed_occupied_7_day_avg",
+        "icu_beds_used_7_day_avg", "staffed_adult_icu_bed_occupancy_7_day_avg",
+        "all_pediatric_inpatient_bed_occupied_7_day_avg", "all_pediatric_inpatient_beds_7_day_avg",
+        "total_staffed_pediatric_icu_beds_7_day_avg"
+      )
+      providers <- do.call(rbind, lapply(split(data, data$hospital_pk), function(d) {
+        d[d == -999999] <- NA
+        d1 <- d[1,, drop = TRUE]
+        coords <- as.numeric(strsplit(d1$geocoded_hospital_address, "[\\s\\(\\)]+", perl = TRUE)[[1]][-1])
+        if (length(coords)) {
+          data.frame(
+            GEOID = d1$hospital_pk,
+            X = coords[[1]],
+            Y = coords[[2]],
+            c(d1[vars_const], colMeans(d[, vars_avg], na.rm = TRUE))
+          )
+        }
+      }))
+      providers[is.na(providers)] <- NA
+      write.csv(providers, hospitals_file, row.names = FALSE)
+    }
     
     # write location files
     out <- paste0("docs/points_", year, ".geojson")

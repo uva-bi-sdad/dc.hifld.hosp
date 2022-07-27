@@ -90,7 +90,7 @@ process_year <- function(data, dir = "data/original", districts = county_distric
     if (file.exists(hospitals_file)) {
       providers <- read.csv(gzfile(hospitals_file))
     } else {
-      vars_const <- c("hospital_name", "hospital_subtype", "hhs_ids", "is_metro_micro")
+      vars_const <- c("hospital_name", "hospital_subtype", "hhs_ids", "is_metro_micro", "state")
       vars_avg <- c(
         "total_beds_7_day_avg", "total_icu_beds_7_day_avg", "inpatient_beds_7_day_avg",
         "inpatient_beds_used_7_day_avg", "all_adult_hospital_beds_7_day_avg",

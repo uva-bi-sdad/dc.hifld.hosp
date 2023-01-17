@@ -38,7 +38,7 @@
       }
     ]
   },
-  "access_scores_hospitals:hosp_beds_cnt": {
+  "access_scores_hospitals:hosp_cnt": {
     "category": "Health",
     "measure_table": "dc_health_behavior_diet.va_hdcttr_sdad_2021_access_scores_hospitals",
     "full_name": "access_scores_hospitals:hosp_beds_cnt",

@@ -8,14 +8,13 @@
     "short_name": "Hospital drive time",
     "long_name": "Hospital availability by median drive time to the ten closest facilities in minutes",
     "short_description": "Median drive time (minutes) to the ten closest hospitals",
-    "long_description": "Median drive time in minutes to the ten closest hospitals. Facility location data were collected from the Homeland Infrastructure Foundation-Level Data (HIFLD) repository. Drive times were computed using Open Source Routing Machine (Using roads for year 2021).",
+    "long_description": "Median drive time in minutes to the ten closest hospitals. Facility location data were collected from the Center for Medicare and Medicaid Services. Drive times were computed using Open Source Routing Machine (Using roads for year 2021).",
     "statement": "The median drive time to the ten closest hospitals to {features.name} is {value}.",
     "equity_category": "Availability",
     "sources": [
       {
-        "name": "Homeland Infrastructure Foundation-Level Data (HIFLD)",
-        "date_accessed": 2021,
-        "url": "https://hifld-geoplatform.opendata.arcgis.com/"
+        "name": "Center for Medicare and Medicaid Services",
+        "date_accessed": 2022
       }
     ]
   },
@@ -34,9 +33,8 @@
     "citations": ["lou04", "lou09", "lou03", "saxon20"],
     "sources": [
       {
-        "name": "Homeland Infrastructure Foundation-Level Data (HIFLD)",
-        "date_accessed": 2021,
-        "url": "https://hifld-geoplatform.opendata.arcgis.com/"
+        "name": "Center for Medicare and Medicaid Services",
+        "date_accessed": 2022
       }
     ]
   },
@@ -49,14 +47,14 @@
     "short_name": "Hospital availability (count)",
     "long_name": "Availability of hospitals by count",
     "short_description": "Count of hospitals based on facility locations",
-    "long_description": "Count of hospitals based on facility locations. Location data were collected from the Homeland Infrastructure Foundation-Level Data (HIFLD) repository.",
+    "long_description": "Count of hospitals based on facility locations. Location data were collected from the Center for Medicare and Medicaid Services.",
     "statement": "There are {value} hospitals in {features.name}.",
     "equity_category": "Availability",
     "sources": [
       {
-        "name": "Homeland Infrastructure Foundation-Level Data (HIFLD)",
-        "date_accessed": 2021,
-        "url": "https://hifld-geoplatform.opendata.arcgis.com/"
+        "name": "Center for Medicare and Medicaid Services",
+        "date_accessed": 2022,
+        "url": ""
       }
     ]
   },

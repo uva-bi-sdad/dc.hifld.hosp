@@ -14,7 +14,8 @@
     "sources": [
       {
         "name": "Center for Medicare and Medicaid Services",
-        "date_accessed": 2022
+        "date_accessed": 2022,
+        "url": "https://data.cms.gov/provider-data/topics/hospitals"
       }
     ]
   },
@@ -34,7 +35,8 @@
     "sources": [
       {
         "name": "Center for Medicare and Medicaid Services",
-        "date_accessed": 2022
+        "date_accessed": 2022,
+        "url": "https://data.cms.gov/provider-data/topics/hospitals"
       }
     ]
   },
@@ -54,7 +56,7 @@
       {
         "name": "Center for Medicare and Medicaid Services",
         "date_accessed": 2022,
-        "url": ""
+        "url": "https://data.cms.gov/provider-data/topics/hospitals"
       }
     ]
   },
